@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/readable/bootstrap.min.css" crossorigin="anonymous">
+</head>
+
+
+<body>
+<div class="container">
+	<div class="row">
+		<div class=".col-md-6">
+			<h1> Mibig Json as PNG Images</h1>
+			
+			<div class="lists"></div>
+		</div>
+	</div>
+</div>
+</body>
+
+
+<script>
+	var fmt = d3.format("<07");
+	var pnglist = d3.select(".lists").append("ol").selectAll();
+	
+	pnglist
+	  .data(d3.range(1389))
+	  .enter()
+	   .append("li")
+	   .append("a")
+	   .attr("href", function(d){return "images/BGC" + fmt(d +1) + ".png"})
+	   .text(function(d){return "BGC" + fmt(d + 1) + ".png"});
+
+</script>
+</html>
